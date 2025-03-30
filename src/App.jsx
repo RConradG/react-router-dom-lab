@@ -25,15 +25,12 @@ const App = () => {
         <Route path='/' element={ <main><h1>Post Office</h1></main> } />
         <Route path='/mailboxes' element={<MailboxList mailboxes={mailboxes}/>} />
         <Route path='/new-mailboxes' element={<MailboxForm addBox={addBox} />} />
-        <Route path='mailboxes/:mailboxId' element={<MailboxDetails />} />
+        <Route path='mailboxes/:mailboxId' element={<MailboxDetails mailboxes={mailboxes} />} />
+        <Route path='/mailbox-not-found' element={ <h1>Mailbox Not Found!</h1>} />
+        <Route path='*' element={<h1>Whoa, that doesn't exist!</h1>} />
       </Routes>
     </>
   ); 
 };
 
 export default App;
-
-// As a user, when viewing the ‘Mailboxes’ page, I should be able to see a list of all the existing mailboxes. Each mailbox in the list should be a square container with a box number _id.
-// As a user, when viewing the ‘Mailboxes’ list page, I want to be able to click on a mailbox, and be directed to a mailbox details page.
-// As a user, when viewing the details page, I should see details about a specific mailbox. The details should include the box number (_id), the name of the box owner, and the box size.
-// As a user, I should see the message ‘Mailbox Not Found!’ if I navigate to the details page for a mailbox that does not exist.
